@@ -11,18 +11,25 @@
           - tmux
           - python3-psutil
           - neovim
-          - gnome
           - dconf
-          - wireshark
+          - wireshark-qt
           - macchanger
-          - gnome-tweaks
           - binwalk
           - npm
           - golang
-          - make 
+          - make
           - unzip
           - gcc
           - ripgrep
+          - gnome-tweaks
+          - gnome-shell-extension-manager
+          - gnome-shell-extension-arc-menu
+          - gnome-shell-extension-caffeine
+          - gnome-shell-extension-clipboard-indicator
+          - gnome-shell-extension-dash-to-panel
+          - gnome-shell-extension-just-perfection
+          - gnome-shell-extension-user-theme
+    state: present
 
 
   - name: copy wallpaper file
