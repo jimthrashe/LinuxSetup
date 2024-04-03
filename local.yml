@@ -4,8 +4,8 @@
   become: true
 
   tasks:
-  - name: install packages 
-    package: 
+    - name: install packages 
+      package: 
         name: 
           - htop 
           - tmux
@@ -21,33 +21,32 @@
           - unzip
           - gcc
           - ripgrep
-          - gnome-tweaks
-          - gnome-shell-extension-manager
-          - gnome-shell-extension-arc-menu
-          - gnome-shell-extension-caffeine
-          - gnome-shell-extension-clipboard-indicator
-          - gnome-shell-extension-dash-to-panel
-          - gnome-shell-extension-just-perfection
-          - gnome-shell-extension-user-theme
-    state: present
+        # - gnome-tweaks
+        # - gnome-shell-extension-arc-menu
+        # - gnome-shell-extension-caffeine
+        # - gnome-shell-extension-clipboard-indicator
+        # - gnome-shell-extension-dash-to-panel
+        # - gnome-shell-extension-just-perfection
+        # - gnome-shell-extension-user-theme
+      state: present
 
+    - name: copy wallpaper file
+      copy:
+        src: files/wallpaper.png
+        dest: /usr/share/backgrounds/ansible-wallpaper.png
+        owner: root
+        group: root
 
-  - name: copy wallpaper file
-    copy:
-      src: files/wallpaper.png
-      dest: /usr/share/backgrounds/ansible-wallpaper.png
-      owner: root
-      group: root
-  - name: set wallpaper
-    become_user: james
-    dconf: 
-      key: "/org/gnome/desktop/background/picture-uri"
-      value: "'file:///usr/share/backgrounds/ansible-wallpaper.png'"
+    - name: set wallpaper
+      become_user: james
+      dconf: 
+        key: "/org/gnome/desktop/background/picture-uri"
+        value: "'file:///usr/share/backgrounds/ansible-wallpaper.png'"
 
-  - name: set wallpaper position
-    become_user: james
-    dconf:
-      key: "/org/gnome/desktop/background/picture-options"
-      value: "'zoom'"
+    - name: set wallpaper position
+      become_user: james
+      dconf:
+        key: "/org/gnome/desktop/background/picture-options"
+        value: "'zoom'"
 
-  
+ 
