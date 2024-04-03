@@ -1,4 +1,5 @@
----
+
+ ---
 - hosts: localhost
   connection: local
   become: true
@@ -80,8 +81,8 @@
 
 - name: set wallpaper position
   become_user: james
-    dconf:
+  dconf:
     key: "/org/gnome/desktop/background/picture-options"
-      alue: "'zoom'"
+    alue: "'zoom'"
 
  
