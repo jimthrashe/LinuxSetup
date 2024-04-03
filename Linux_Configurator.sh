@@ -78,7 +78,7 @@ if_FedoraInstall() {
     # Remove unused packages (orphans)
     sudo dnf autoremove -y
     
-    sudo dnf clean all -y
+    sudo dnf clean packages -y
 
     # Install required packages
     sudo dnf install -y python3 git ansible
