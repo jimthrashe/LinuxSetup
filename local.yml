@@ -1,11 +1,11 @@
 
- ---
+---
 - hosts: localhost
   connection: local
   become: true
 
 - name: Install packages
-  package:
+    package:
     name: "{{ item }}"
     state: present
   loop:
@@ -34,7 +34,7 @@
   become: true
 
 - name: Install packages
-  package:
+    package:
     name: "{{ item }}"
     state: present
   loop:
@@ -64,7 +64,7 @@
 
 
 - name: Copy wallpaper file
-  copy: 
+    copy: 
     src: files/wallpaper.png
     dest: /usr/share/backgrounds/ansible-wallpaper.png
   become: yes
@@ -75,13 +75,13 @@
 
 - name: set wallpaper
   become_user: james
-  dconf: 
+    dconf: 
     key: "/org/gnome/desktop/background/picture-uri"
     value: "'file:///usr/share/backgrounds/ansible-wallpaper.png'"
 
 - name: set wallpaper position
   become_user: james
-  dconf:
+    dconf:
     key: "/org/gnome/desktop/background/picture-options"
     alue: "'zoom'"
 
