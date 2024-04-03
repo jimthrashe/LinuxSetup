@@ -3,24 +3,24 @@
   connection: local
   become: true
 
-  tasks:
-    - name: install packages 
-      package: 
-        name: 
-          - htop 
-          - tmux
-          - python3-psutil
-          - neovim
-          - dconf
-          - wireshark-qt
-          - macchanger
-          - binwalk
-          - npm
-          - golang
-          - make
-          - unzip
-          - gcc
-          - ripgrep
+    tasks:
+      - name: install packages 
+        package: 
+          name: 
+            - htop 
+            - tmux
+            - python3-psutil
+            - neovim
+            - dconf
+            - wireshark-qt
+            - macchanger
+            - binwalk
+            - npm
+            - golang
+            - make
+            - unzip
+            - gcc
+            - ripgrep
         # - gnome-tweaks
         # - gnome-shell-extension-arc-menu
         # - gnome-shell-extension-caffeine
@@ -28,7 +28,7 @@
         # - gnome-shell-extension-dash-to-panel
         # - gnome-shell-extension-just-perfection
         # - gnome-shell-extension-user-theme
-      state: present
+          state: present
 
     - name: copy wallpaper file
       copy:
