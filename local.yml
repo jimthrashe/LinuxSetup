@@ -1,11 +1,10 @@
 - hosts: localhost
   connection: local
   become: true
-
   tasks:
     - name: Install packages for apt package manager
       package:
-        name: "{{ item }}"
+        name: '{{ item }}'
         state: present
       loop:
         - htop
@@ -24,10 +23,9 @@
         - ripgrep
       when: ansible_facts.pkg_mgr == 'apt'
       become: true
-
     - name: Install packages for yum/dnf package manager
       package:
-        name: "{{ item }}"
+        name: '{{ item }}'
         state: present
       loop:
         - htop
@@ -46,22 +44,19 @@
         - ripgrep
       when: ansible_facts.pkg_mgr == 'yum' or ansible_facts.pkg_mgr == 'dnf'
       become: true
-
     - name: Copy wallpaper file
-        copy: 
-          src: files/wallpaper.png
-          dest: /usr/share/backgrounds/ansible-wallpaper.png
-        become: yes
+      copy:
+        src: files/wallpaper.png
+        dest: /usr/share/backgrounds/ansible-wallpaper.png
+        become: 'yes'
         become_user: root
-
     - name: Set wallpaper
       become_user: james
-        dconf: 
-          key: "/org/gnome/desktop/background/picture-uri"
-          value: "'file:///usr/share/backgrounds/ansible-wallpaper.png'"
-
+      dconf:
+        key: /org/gnome/desktop/background/picture-uri
+      value: '''file:///usr/share/backgrounds/ansible-wallpaper.png'''
     - name: Set wallpaper position
-        become_user: james
-        dconf:
-          key: "/org/gnome/desktop/background/picture-options"
-          value: "'zoom'"
+      become_user: james
+      dconf:
+        key: /org/gnome/desktop/background/picture-options
+        value: '''zoom'''
