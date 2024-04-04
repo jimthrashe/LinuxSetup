@@ -48,7 +48,7 @@
           - python3-psutil
           - neovim
           - dconf
-          - wireshark-qt
+          - wireshark
           - macchanger
           - binwalk
           - npm
