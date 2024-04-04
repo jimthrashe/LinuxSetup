@@ -62,11 +62,11 @@
 
     # Remaining tasks for copying wallpaper and setting wallpaper
     - name: Copy wallpaper file
-        copy: 
+       copy: 
         src: files/wallpaper.png
         dest: /usr/share/backgrounds/ansible-wallpaper.png
-      become: yes
-      become_user: root
+       become: yes
+       become_user: root
 
     - name: Set wallpaper
         become_user: james
