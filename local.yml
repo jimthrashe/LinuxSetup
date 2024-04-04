@@ -17,15 +17,12 @@
         - macchanger
         - binwalk
         - npm
-        - golang
-        - make
-        - unzip
         - gcc
         - ripgrep
       when: ansible_facts.pkg_mgr == 'apt'
       become: true
 
-    - name: Install packages for yum/dnf package manager
+    - name: Install packages for yum package manager
       package:
         name: "{{ item }}"
         state: present
@@ -39,29 +36,46 @@
         - macchanger
         - binwalk
         - npm
-        - golang
-        - make
-        - unzip
         - gcc
         - ripgrep
-      when: ansible_facts.pkg_mgr == 'yum' or ansible_facts.pkg_mgr == 'dnf'
+      when: ansible_facts.pkg_mgr == 'yum'
       become: true
 
+    - name: Install packages for dnf package manager
+      package:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - htop
+        - tmux
+        - python3-psutil
+        - neovim
+        - dconf
+        - wireshark-qt
+        - macchanger
+        - binwalk
+        - npm
+        - gcc
+        - ripgrep
+      when: ansible_facts.pkg_mgr == 'dnf'
+      become: true
+
+    # Remaining tasks for copying wallpaper and setting wallpaper
     - name: Copy wallpaper file
-      copy: 
+        copy: 
         src: files/wallpaper.png
         dest: /usr/share/backgrounds/ansible-wallpaper.png
-      become: yes
-      become_user: root
+        become: yes
+        become_user: root
 
     - name: Set wallpaper
-      become_user: james
-      dconf: 
-        key: "/org/gnome/desktop/background/picture-uri"
-        value: "'file:///usr/share/backgrounds/ansible-wallpaper.png'"
+        become_user: james
+        dconf: 
+          key: "/org/gnome/desktop/background/picture-uri"
+          value: "'file:///usr/share/backgrounds/ansible-wallpaper.png'"
 
     - name: Set wallpaper position
       become_user: james
-      dconf:
-        key: "/org/gnome/desktop/background/picture-options"
-        value: "'zoom'"
+        dconf:
+          key: "/org/gnome/desktop/background/picture-options"
+          value: "'zoom'"
