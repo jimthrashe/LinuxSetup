@@ -1,0 +1,20 @@
+--- 
+- name: Install Google Chrome
+  dnf: 
+    name: google-chrome-stable
+    state: present 
+  when: install_chrome 
+
+- name: Install Spotify
+  dnf: 
+    name: spotify-client 
+    state: present 
+  ignore_errors: yes 
+  when: install_spotify 
+
+- name: Install VS Code 
+  dnf: 
+    name: code 
+    state: present 
+  when: install_vscode 
+
