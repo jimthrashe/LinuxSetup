@@ -37,4 +37,4 @@
 
 
 - name: Rune restorecon on /home/{{ local_user }}/.cert
-  command: /usr/sbin/restorecon -R -v /home{{ local_user }}/.cert # noqa 301
+  command: /usr/sbin/restorecon -R -v /home{{ local_user }}/.cert # noqa
