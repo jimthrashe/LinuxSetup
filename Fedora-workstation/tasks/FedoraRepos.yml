@@ -28,7 +28,7 @@
       command: dnf config-manager --add-repo=https://negativeo17.org/repos/fedora-spotify-repo
       when: not fedora_spotify_installed.stat.exists
 
-    when: install_spotify
+  when: install_spotify
 
 - block:
 

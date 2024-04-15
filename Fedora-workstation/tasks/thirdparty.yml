@@ -9,7 +9,7 @@
   dnf: 
     name: spotify-client 
     state: present 
-  ignore_errors: yes 
+    ignore_errors: yes 
   when: install_spotify 
 
 - name: Install VS Code 
