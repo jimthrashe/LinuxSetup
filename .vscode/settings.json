@@ -1,3 +1,7 @@
 {
-    "files.eol": "\n"
+    "files.eol": "\n",
+    "ansible.python.interpreterPath": "c:\\Users\\jimth\\AppData\\Local\\Microsoft\\WindowsApps\\python3.11.exe",
+    "yaml.schemas": {
+        "https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json#/$defs/playbook": "file:///c%3A/Users/jimth/OneDrive/Desktop/LinuxSetup/Fedora-workstation/FedoraSetup.yml"
+    }
 }
