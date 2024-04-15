@@ -1,0 +1,40 @@
+---
+
+
+- name: Create Vagrant group
+  group:
+    name: vagrant
+    state: present 
+
+- name: Setup {{ local_user }} user 
+  user: 
+    name: "{{ local_user }}"
+    home: /home/{{ local_user }}
+    groups: mock,vagrant,libvirt,wheel
+    append: yes 
+
+- name: Allow wheel group to sudo without a password 
+  lineinfile:
+    dest: /etc/sudoers
+    state: present 
+    regexp: '^%wheel'
+    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+    validate: visudo -cf %s
+  when: local_user_passwordless_sudo
+
+- name: Grant {{ local_user }} access to libvirt via polkit
+  template:
+    src: templates/libvirt_polkit.j2
+    dest: /etc/polkit-1/rules.d/50-org.libvirt.unix.manage.rules
+
+- name: Create /home/{{ local_user }}/.cert directory
+  file: 
+    path: /home/{{ local_user }}/.cert
+    state: directory
+    mode: 0750
+    owner: "{{ local_user }}" 
+    group: "{{ local_user }}"
+
+
+- name: Rune restorecon on /home/{{ local_user }}/.cert
+  command: /usr/sbin/restorecon -R -v /home{{ local_user }}/.cert # noqa 301
