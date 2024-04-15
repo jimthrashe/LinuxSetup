@@ -1,0 +1,39 @@
+- block:
+  - name: Allow vagrant group to control NFS
+    template:
+      src: templates/vagrant-nfs.j2
+      dest: /etc/sudoers.d/vagrant-nfs
+      validate: 'visudo -cf %s'
+
+  - name: Allow connections to NFS in the firewall
+    firewalld:
+      zone: FedoraWorkstation
+      service: "{{ item }}"
+      permanent: true
+      immediate: true
+      state: "{{ firewall_state }}"
+    with_items:
+    - nfs
+    - rpc-bind
+    - mountd
+  when: enable_vagrant_nfs
+
+- name: Enable net.ipv4.ip_forward
+  sysctl:
+    name: net.ipv4.ip_forward
+    value: '1'
+    sysctl_set: yes
+    state: present
+    reload: yes
+
+- name: Set fs.inotify.max_user_watches to 524288
+  sysctl:
+    name: fs.inotify.max_user_watches
+    value: '524288'
+    sysctl_set: yes
+    state: present
+    reload: yes
+  when: install_vscode
+
+vars:
+  firewall_state: disabled
