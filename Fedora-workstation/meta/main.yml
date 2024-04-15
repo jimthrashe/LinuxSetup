@@ -1,0 +1,17 @@
+galaxy_info:
+  author: James T
+  description: configures for daily use.
+
+  license: MIT
+
+  min_ansible_version: 2.9.10
+
+  platforms:
+  - name: Fedora
+    versions:
+      - 39
+
+  galaxy_tags:
+    - workstation
+
+dependencies: []
