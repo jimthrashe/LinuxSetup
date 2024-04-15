@@ -111,7 +111,7 @@ check_distribution() {
 }
 
 
-Fedora_Configurator(){
+Ansible_Configurator(){
 
     ansible-pull -U https://github.com/jimthrashe/LinuxSetup
 
