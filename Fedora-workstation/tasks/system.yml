@@ -35,5 +35,3 @@
     reload: yes
   when: install_vscode
 
-vars:
-  firewall_state: disabled
