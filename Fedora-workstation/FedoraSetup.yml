@@ -8,8 +8,8 @@
     - vars/vars.yml
 
   tasks:
-   # - name: Include repositories setup tasks
-   #   include_tasks: Fedora-workstation/tasks/fedorarepos.yml
+    - name: Include repositories setup tasks
+      include_tasks: Fedora-workstation/tasks/fedorarepos.yml
 
     - name: Include packages installation tasks
       include_tasks: Fedora-workstation/tasks/packages.yml
