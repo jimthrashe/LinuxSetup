@@ -8,13 +8,27 @@
     - vars/vars.yml
 
   tasks:
-    - include_tasks: Fedora-workstation/tasks/repos.yml
-    - include_tasks: Fedora-workstation/tasks/packages.yml
-    - include_tasks: Fedora-workstation/tasks/users.yml
-    - include_tasks: Fedora-workstation/tasks/services.yml
-    - include_tasks: Fedora-workstation/tasks/system.yml
-    - include_tasks: Fedora-workstation/tasks/thirdparty.yml
-    - include_tasks: Fedora-workstation/tasks/harden.yml
+    - name: Include repositories setup tasks
+      include_tasks: Fedora-workstation/tasks/repos.yml
+
+    - name: Include packages installation tasks
+      include_tasks: Fedora-workstation/tasks/packages.yml
+
+    - name: Include users management tasks
+      include_tasks: Fedora-workstation/tasks/users.yml
+
+    - name: Include services setup tasks
+      include_tasks: Fedora-workstation/tasks/services.yml
+
+    - name: Include system setup tasks
+      include_tasks: Fedora-workstation/tasks/system.yml
+
+    - name: Include third-party software installation tasks
+      include_tasks: Fedora-workstation/tasks/thirdparty.yml
+
+    - name: Include system hardening tasks
+      include_tasks: Fedora-workstation/tasks/harden.yml
 
   handlers:
-    - import_tasks: Fedora-workstation/handlers/main.yml
+    - name: Import main handlers
+      import_tasks: Fedora-workstation/handlers/main.yml
