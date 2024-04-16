@@ -1,6 +1,6 @@
 ---
 - name: Setup Workstation
-  hosts: localhost 
+  hosts: all 
 
   vars_files:
     - Fedora-workstation/vars/vars.yml
