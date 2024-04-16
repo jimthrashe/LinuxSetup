@@ -1,6 +1,5 @@
 ---
 - name: Local playbook
-  hosts: localhost
   connection: local
   gather_facts: yes
 

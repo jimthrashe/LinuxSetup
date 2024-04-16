@@ -103,6 +103,8 @@ check_distribution() {
         fedora)
             echo "This is Fedora."
                 if_FedoraInstall
+                echo "runing ansible"
+                Ansible_ConfiguratorFedora
             ;;
         *)
             echo "Unknown distribution."
@@ -111,9 +113,10 @@ check_distribution() {
 }
 
 
-Ansible_Configurator(){
+Ansible_ConfiguratorFedora(){
 
-    ansible-pull -U https://github.com/jimthrashe/LinuxSetup
+        ansible-pull -U https://github.com/jimthrashe/LinuxSetup -i Fedora-workstation/inventory
+    }
 
 
 }
@@ -127,7 +130,6 @@ main(){
     checkos
     check_distribution
     echo"running ansible"
-    Ansible_Configurator
 
 
 
