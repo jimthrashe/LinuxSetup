@@ -5,7 +5,8 @@
   vars_files:
     - Fedora-workstation/vars/vars.yml
 
-  tasks:
+tasks:
+
     - include_tasks: Fedora-workstation/tasks/fedorarepos.yml
     - include_tasks: Fedora-workstation/tasks/packages.yml
     - include_tasks: Fedora-workstation/tasks/users.yml
