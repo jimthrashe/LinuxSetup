@@ -3,8 +3,6 @@
   connection: local
   gather_facts: yes
 
-  inventory:
-    - Fedora-workstation/inventory
   tasks:
     - name: Check if OS is Fedora
       when: ansible_distribution == 'fedora'
