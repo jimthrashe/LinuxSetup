@@ -1,64 +1,20 @@
 ---
+- name: Setup Workstation
+  hosts: workstation
+  become: true
+  gather_facts: true
 
-- tasks:
-  - name: Setup Workstation
-     hosts: workstation
-    become: true
-    gather_facts: true
+  vars_files:
+    - vars/vars.yml
 
-    vars_files:
-      - vars/vars.yml
+  tasks:
+    - include_tasks: Fedora-workstation/tasks/fedorarepos.yml
+    - include_tasks: Fedora-workstation/tasks/packages.yml
+    - include_tasks: Fedora-workstation/tasks/users.yml
+    - include_tasks: Fedora-workstation/tasks/services.yml
+    - include_tasks: Fedora-workstation/tasks/system.yml
+    - include_tasks: Fedora-workstation/tasks/thirdparty.yml
+    - include_tasks: Fedora-workstation/tasks/harden.yml
 
-    tasks:
-      - name: Debug message 1
-        debug:
-          msg: "Executing Include repositories setup tasks"
-    
-      - name: Include repositories setup tasks
-        include_tasks: Fedora-workstation/tasks/fedorarepos.yml
-
-      - name: Debug message 2
-        debug:
-          msg: "Executing Include packages installation tasks"
-    
-      - name: Include packages installation tasks
-        include_tasks: Fedora-workstation/tasks/packages.yml
-
-      - name: Debug message 3
-        debug:
-          msg: "Executing Include users management tasks"
-    
-      - name: Include users management tasks
-        include_tasks: Fedora-workstation/tasks/users.yml
-
-      - name: Debug message 4
-        debug:
-          msg: "Executing Include services setup tasks"
-    
-      - name: Include services setup tasks
-        include_tasks: Fedora-workstation/tasks/services.yml
-
-      - name: Debug message 5
-        debug:
-          msg: "Executing Include system setup tasks"
-    
-      - name: Include system setup tasks
-        include_tasks: Fedora-workstation/tasks/system.yml
-
-      - name: Debug message 6
-        debug:
-          msg: "Executing Include third-party software installation tasks"
-    
-      - name: Include third-party software installation tasks
-        include_tasks: Fedora-workstation/tasks/thirdparty.yml
-
-      - name: Debug message 7
-        debug:
-          msg: "Executing Include system hardening tasks"
-    
-      - name: Include system hardening tasks
-        include_tasks: Fedora-workstation/tasks/harden.yml
-
-    handlers:
-      - name: Import main handlers
-        import_tasks: Fedora-workstation/handlers/main.yml
+  handlers:
+    - import_tasks: Fedora-workstation/handlers/main.yml
