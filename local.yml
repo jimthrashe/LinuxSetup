@@ -5,10 +5,10 @@
 
   tasks:
     - name: Check if OS is Fedora
-      when: ansible_distribution == 'Fedora'
+      when: ansible_distribution == 'fedora'
       include_tasks: Fedora-workstation/FedoraSetup.yml
 
     - name: Print message and stop execution if not Fedora
       debug:
         msg: "Unable to assist"
-      when: ansible_distribution != 'Fedora'
+      when: ansible_distribution != 'fedora'
