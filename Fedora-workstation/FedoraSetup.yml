@@ -1,21 +1,19 @@
 ---
-- name: Setup Workstation
-  hosts: workstation
-  become: true
-  gather_facts: true
+  - name: Setup Workstation
+    hosts: workstation
+    become: true
+    gather_facts: true
+    vars_files:
+      - vars/vars.yml
 
-  vars_files:
-    - vars/vars.yml
-
-tasks:
-  
-  - include_tasks: tasks/fedorarepos.yml
-  - include_tasks: tasks/packages.yml
-  - include_tasks: tasks/users.yml
-  - include_tasks: tasks/services.yml
-  - include_tasks: tasks/system.yml
-  - include_tasks: tasks/thirdparty.yml
-  - include_tasks: tasks/harden.yml
+  tasks:
+    - include_tasks: tasks/fedorarepos.yml
+    - include_tasks: tasks/packages.yml
+    - include_tasks: tasks/users.yml
+    - include_tasks: tasks/services.yml
+    - include_tasks: tasks/system.yml
+    - include_tasks: tasks/thirdparty.yml
+    - include_tasks: tasks/harden.yml
 
   handlers:
     - import_tasks: handlers/main.yml
