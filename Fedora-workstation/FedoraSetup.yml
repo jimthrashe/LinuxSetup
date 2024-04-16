@@ -1,7 +1,5 @@
 ---
 - name: Setup Workstation
-  hosts: localhost
-  become: true
   gather_facts: true
   vars_files:
     - Fedora-workstation/vars/vars.yml
