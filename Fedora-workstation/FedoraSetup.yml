@@ -5,7 +5,7 @@
   gather_facts: true
 
   vars_files:
-    - vars/vars.yml
+    - Fedora-workstation/vars/vars.yml
 
   tasks:
     - include_tasks: Fedora-workstation/tasks/fedorarepos.yml
