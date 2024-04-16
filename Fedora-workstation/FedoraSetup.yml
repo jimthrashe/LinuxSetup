@@ -1,11 +1,10 @@
 ---
 - name: Setup Workstation
-  become: true
-  gather_facts: true
+  hosts: Workstation
 
   vars_files:
     - Fedora-workstation/vars/vars.yml
-    - Fedora-workstation/inventory.yml
+
   tasks:
     - include_tasks: Fedora-workstation/tasks/fedorarepos.yml
     - include_tasks: Fedora-workstation/tasks/packages.yml
