@@ -1,8 +1,8 @@
 ---
 
-
+- tasks:
   - name: Setup Workstation
-    hosts: workstation
+     hosts: workstation
     become: true
     gather_facts: true
 
