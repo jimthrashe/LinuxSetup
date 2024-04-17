@@ -2,6 +2,9 @@
   become: true 
   gather_facts: yes
 
+  vars_files:
+    - Fedora-workstation/FedoraSetup.ymlvars/main.yml
+
   tasks:
     - name: Set up Fedora repositories
       include_tasks: Fedora-workstation/tasks/fedorarepos.yml
