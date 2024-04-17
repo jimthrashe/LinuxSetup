@@ -4,7 +4,11 @@
   become: true 
   gather_facts: yes
 
-tasks:
-  - include_tasks: Fedora-workstation/FedoraSetup.yml
-    when: ansible_distribution == 'Fedora'
+  tasks:
+    - name: Check if Fedora workstation
+      fail:
+        msg: "This is not a Fedora workstation"
+      when: ansible_distribution != 'Fedora'
+      - include_tasks: /Fedora-workstation/FedoraSetup.yml
+
 
