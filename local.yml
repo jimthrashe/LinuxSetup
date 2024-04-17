@@ -1,6 +1,7 @@
 ---
 - name: Check and setup Fedora workstation
-  hosts: localhost
+  hosts: workstation
+  become: true 
   gather_facts: yes
 
   tasks:
