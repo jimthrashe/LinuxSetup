@@ -26,10 +26,9 @@
       debug:
         msg: "Starting to set GNOME wallpaper"
     
-    - name: Ensure psutil is installed
-      ansible.builtin.pip:
-        name: psutil
-        state: present
+  #  - name: Ensure psutil is installed
+   ##    name: psutil
+#        state: present
 
     - name: Set GNOME wallpaper
       dconf:
