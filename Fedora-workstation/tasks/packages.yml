@@ -19,107 +19,70 @@
   debug:
     msg: "Installing all packages"
 
+- name: Install development tools
+  become: true
+  dnf:
+    name:
+      - gcc
+      - gcc-c++
+      - gdb-doc
+      - golang
+      - golang-godoc
+      - golang-gotype
+      - gotags
+      - nodejs
+      - npm
+      - python3-pip
+      - pykickstart
+      - pylint
+      - pyp2rpm
+      - pypy
+      - pytest
+    state: installed
+    update_cache: yes
+  ignore_errors: yes
 
-- name: Install various categories of packages
-  tasks:
-    - name: Install system utilities
-      dnf:
-        name:
-          - htop
-          - tmux
-          - neovim
-          - dconf
-          - tshark
-          - wireshark-qt
-          - macchanger
-          - binwalk
-          - npm
-          - pv
-          - sysstat
-          - xclip
-          - xbacklight
-          - xfsdump
-          - xournal
-          - xseli
-        state: installed
-        update_cache: yes
+- name: Install system tools
+  become: true
+  dnf:
+    name:
+      - htop
+      - tmux
+      - neovim
+      - dconf
+      - firewalld
+      - firewalld-filesystem
+      - lm_sensors
+      - sysstat
+      - system-storage-manager
+      - tuned
+      - tuned-utils
+      - tuned-utils-systemtap
+    state: installed
+    update_cache: yes
+  ignore_errors: yes
 
-    - name: Install development tools
-      dnf:
-        name:
-          - gcc
-          - gcc-c++
-          - gdb-doc
-          - golang
-          - golang-godoc
-          - golang-gotype
-          - gotags
-          - nodejs
-          - python3-pip
-          - pylint
-          - pyp2rpm
-          - pypy
-          - pytest
-          - python3-psutil
-        state: installed
+- name: Install network tools
+  become: true
+  dnf:
+    name:
+      - tshark
+      - wireshark-qt
+      - macchanger
+      - binwalk
+      - nmap
+      - nmon
+      - psad
+      - pssh
+    state: installed
+    update_cache: yes
+  ignore_errors: yes
 
-    - name: Install security and networking tools
-      dnf:
-        name:
-          - fail2ban
-          - firewalld
-          - firewalld-filesystem
-          - psad
-          - nmap
-          - letsencrypt
-          - lftp
-        state: installed
 
-    - name: Install virtualization and system management tools
-      dnf:
-        name:
-          - libguestfs
-          - libguestfs-tools
-          - libguestfs-tools-c
-          - libguestfs-xfs
-          - libvirt
-          - libvirt-sandbox
-          - tuned
-          - tuned-utils
-          - tuned-utils-systemtap
-          - system-storage-manager
-        state: installed
 
-    - name: Install user interface and desktop utilities
-      dnf:
-        name:
-          - gnome-shell-extension-gpaste
-          - gnome-tweak-tool
-          - terminator
-          - vagrant
-          - vagrant-doc
-          - virt-top
-        state: installed
 
-    - name: Install miscellaneous libraries and tools
-      dnf:
-        name:
-          - libicns-utils
-          - libmtp-examples
-          - libnfs
-          - libnfsidmap
-          - libsemanage-devel
-          - libtool
-          - livecd-tools
-          - liveusb-creator
-          - lm_sensors
-          - testdisk
-          - valgrind
-          - vim-enhanced
-          - whois
-          - transmission-cli
-          - tuna
-        state: installed
+
+
 
 
 
