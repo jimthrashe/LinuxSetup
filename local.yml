@@ -4,7 +4,6 @@
   become: true 
   gather_facts: yes
 
-
   tasks:
     - name: Specific task for Fedora
       debug:
