@@ -14,13 +14,7 @@
       include_tasks: Fedora-workstation/playbooks/Packages.yml
       when: ansible_distribution == "Fedora"
 
-    - name: Configure user settings if OS is Fedora
-      include_tasks: Fedora-workstation/playbooks/Users.yml
-      when: ansible_distribution == "Fedora"
 
-    - name: Set up services if OS is Fedora
-      include_tasks: Fedora-workstation/playbooks/Services.yml
-      when: ansible_distribution == "Fedora"
 
     - name: Configure system settings if OS is Fedora
       include_tasks: Fedora-workstation/playbooks/System.yml
@@ -30,10 +24,3 @@
       include_tasks: Fedora-workstation/playbooks/Thirdparty.yml
       when: ansible_distribution == "Fedora"
 
-    - name: Harden the system configuration if OS is Fedora
-      include_tasks: Fedora-workstation/playbooks/Harden.yml
-      when: ansible_distribution == "Fedora"
-
-    - name:
-      import_tasks: Fedora-workstation/handlers/main.yml
-      static: no

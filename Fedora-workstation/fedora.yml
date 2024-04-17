@@ -1,0 +1,7 @@
+---
+
+- name: Repos
+  inlcude_task: tasks/fedorarepos.yml
+
+- name: packages
+  include_tasks: tasks/packages.yml

@@ -1,0 +1,97 @@
+--- 
+
+- name: Upgrade all packages
+  dnf: 
+    name: "*"
+    state: latest
+
+#- name: Install group packages whenever I make groups :)
+## dnf: 
+#    name:
+#       - "@TacoBell"
+#    state: installed
+
+- name: Install  packages
+  dnf:
+    name:
+    - htop
+    - tmux
+    - python3-psutil
+    - neovim
+    - dconf
+    - awireshark-qt
+    - macchanger
+    - binwalk
+    - npm
+    - gcc
+    - ripgrep
+    - fail2ban
+    - firewalld
+    - firewalld-filesytem
+    - gcc-c++
+    - gdb-doc
+    - gnome-shell-extension-gpaste
+    - gnome-tweak-tool
+    - golang
+    - golang-godoc
+    - golang-gotype
+    - gotags 
+    - gpaste 
+    - letsencrypt
+    - lftp
+    - libguestfs
+    - libguestfs-tools
+    - libguestfs-tools-c
+    - libguestfs-xfs
+    - libicns-utils
+    - libmtp-examples
+    - libnfs
+    - libnfsidmap
+    - libsemanage-devel
+    - libtaskotron
+    - libtool
+    - libvirt
+    - libvirt-sandbox
+    - livecd-tools
+    - liveusb-creator
+    - lm_sensors
+    - nmap
+    - nmon
+    - nodejs
+    - psad 
+    - pssh 
+    - pv 
+    - pykickstart 
+    - pylint 
+    - pyp2rpm 
+    - pypy 
+    - pytest 
+    - python3-firewall 
+    - python3-virtualenv 
+    - systat 
+    - system-storage-manager 
+    - task 
+    - tcllib 
+    - terminator 
+    - testcloud 
+    - testdisk 
+    - tpp 
+    - transmission-cli 
+    - tuna 
+    - tuned 
+    - tuned-utils 
+    - tuned-utils-systemtap 
+    - units 
+    - vagrant 
+    - vagrant-doc 
+    - valgrind
+    - vim-enhanced
+    - virt-top
+    - whois
+    - wireshark-cli 
+    - xbacklight 
+    - xclip
+    - xfsdump
+    - xournal
+    - xsel 
+    state: installed 

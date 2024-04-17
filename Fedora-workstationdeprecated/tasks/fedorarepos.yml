@@ -1,0 +1,80 @@
+---
+- block:
+
+    - name: Check for Google Chrome repo
+      stat: path=/etc/yum.repos.d/google-chrome.repo
+      register: chrome_installed
+
+    - name: Install Google Chrome repo
+      dnf:
+        name: 'https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm'
+        state: present
+      when: not chrome_installed.stat.exists
+
+    - name: Enable Google Chrome repo
+      command: dnf config-manager --set-enabled google-chrome
+      args:
+        warn: false
+
+  when: install_chrome
+
+- block: 
+
+    - name: Check for Fedora Spotify repo 
+      stat: path=/etc/yum.repos.d/fedora-spotify.repo 
+      register: fedora_spotify_installed 
+
+    - name: Install Fedora Spotify repo 
+      command: dnf config-manager --add-repo=https://negativeo17.org/repos/fedora-spotify-repo
+      when: not fedora_spotify_installed.stat.exists
+
+  when: install_spotify
+
+- block:
+
+    - name: Check for vscode repo
+      stat: path=/etc/yum.repos.d/vscode.repo
+      register: fedora_vscode_installed
+
+    - name: Import Microsoft GPG key
+      rpm_key:
+        state: present
+        key: https://packages.microsoft.com/keys/microsoft.asc
+
+    - name: Enable vscode repo
+      yum_repository:
+        name: code
+        description: Visual Studio Code
+        file: vscode
+        baseurl: 'https://packages.microsoft.com/yumrepos/vscode'
+        gpgkey: 'https://packages.microsoft.com/keys/microsoft.asc'
+        gpgcheck: yes
+      when: not fedora_vscode_installed.stat.exists
+
+  when: install_vscode
+
+
+
+- block:
+
+    - name: Check for RPM Fusion Free repo
+      stat: path=/etc/yum.repos.d/rpmfusion-free.repo
+      register: fedora_rpm_fusion_free_installed
+
+    - name: Check for RPM Fusion Nonfree repo
+      stat: path=/etc/yum.repos.d/rpmfusion-nonfree.repo
+      register: fedora_rpm_fusion_nonfree_installed
+
+    - name: Install RPM Fusion repo rpms
+      dnf:
+        name: "http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_version }}.noarch.rpm"
+        state: present
+      when: not fedora_rpm_fusion_free_installed.stat.exists
+
+    - name: Install RPM Fusion Nonfree repo rpms
+      dnf:
+        name: "http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_version }}.noarch.rpm"
+        state: present
+      when: not fedora_rpm_fusion_nonfree_installed.stat.exists
+
+  when: install_rpmfusion
