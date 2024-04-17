@@ -10,7 +10,7 @@
     msg: "Including Fedora setup tasks because the OS is Fedora"
   when: ansible_distribut
 
-- name: Reion == "Fedora"pos
+- name: repos
   include_tasks: Fedora-workstation/tasks/repos.yml
   
   when: ansible_distribution == "Fedora"
