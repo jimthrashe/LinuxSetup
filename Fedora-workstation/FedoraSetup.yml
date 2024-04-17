@@ -34,5 +34,6 @@ tasks:
     include_tasks: Fedora-workstation/playbooks/Harden.yml
     when: ansible_distribution == "Fedora"
 
- handlers:
-  - import_tasks: handlers/main.yml
+  - name:
+    import_tasks: Fedora-workstation/handlers/main.yml
+    static: no
