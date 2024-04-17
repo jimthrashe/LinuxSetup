@@ -1,33 +1,33 @@
 ---
 - name: Setup Workstation
-  hosts: localhost  # Ensuring 'hosts' directive is present and correctly indented
-  gather_facts: true  # Ensure 'gather_facts' is correctly indented and set
+  hosts: localhost
+  gather_facts: true
 
   vars_files:
-    - Fedora-workstation/vars/vars.yml  # Check that the path is correct and file exists
+    - /vars/vars.yml
 
   tasks:
     - name: Include Fedora repos setup
-      include_tasks: Fedora-workstation/tasks/fedorarepos.yml
+      include_tasks: tasks/fedorarepos.yml
 
-    - name: Include package setup
-      include_tasks: Fedora-workstation/tasks/packages.yml
+    - name: Include packages setup
+      include_tasks: tasks/packages.yml
 
-    - name: Include user setup
-      include_tasks: Fedora-workstation/tasks/users.yml
+    - name: Include users setup
+      include_tasks: tasks/users.yml
 
-    - name: Include service setup
-      include_tasks: Fedora-workstation/tasks/services.yml
+    - name: Include services setup
+      include_tasks: tasks/services.yml
 
     - name: Include system setup
-      include_tasks: Fedora-workstation/tasks/system.yml
+      include_tasks: tasks/system.yml
 
-    - name: Include third-party software setup
-      include_tasks: Fedora-workstation/tasks/thirdparty.yml
+    - name: Include third-party setup
+      include_tasks: tasks/thirdparty.yml
 
-    - name: Include system hardening setup
-      include_tasks: Fedora-workstation/tasks/harden.yml
+    - name: Include hardening setup
+      include_tasks: tasks/harden.yml
 
   handlers:
     - name: Import main handlers
-      import_tasks: Fedora-workstation/handlers/main.yml
+      import_tasks: handlers/main.yml
