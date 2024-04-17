@@ -119,13 +119,12 @@
 
 
 
-- name: Collect all installed packages
-  package_facts:
-    manager: auto
+#- name: Collect all installed packages
+ # package_facts:
+  #  manager: auto
 
-- name: Display all installed packages
-  debug:
-    var: ansible_facts.packages
+#- name: Display all installed packages
+ ##  var: ansible_facts.packages
 
 
 
