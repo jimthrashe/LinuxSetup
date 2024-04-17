@@ -106,7 +106,7 @@ check_distribution() {
                 echo "runing ansible"
                 Ansible_ConfiguratorFedora
             ;;
-        *)
+         *)
             echo "Unknown distribution."
             ;;
     esac
@@ -117,6 +117,7 @@ Ansible_ConfiguratorFedora(){
 
         ansible-pull -U https://github.com/jimthrashe/LinuxSetup -i Fedora-workstation/inventory
     }
+
 
 
 
