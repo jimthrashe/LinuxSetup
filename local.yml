@@ -5,7 +5,6 @@
   gather_facts: yes
 
   tasks:
-    - name: Specific task for Fedora
-
-  - include_tasks: /Fedora-workstation/FedoraSetup.yml
-     when: ansible_distribution == "Fedora"
+    - name: Include Fedora Setup tasks if OS is Fedora
+      include_tasks: Fedora-workstation/FedoraSetup.yml
+      when: ansible_distribution == "fedora"
