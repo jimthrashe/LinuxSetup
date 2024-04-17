@@ -1,6 +1,7 @@
 ---
-- become: true
-  gather_facts: false
+- hosts: localhost
+  become: true
+  gather_facts: true
 
   vars_files:
     - Fedora-workstation/vars/main.yml
