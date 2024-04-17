@@ -6,12 +6,16 @@
 - name: Include Fedora Setup tasks if OS is Fedora
   include_tasks: Fedora-workstation/FedoraSetup.yml
   when: ansible_distribution == "Fedora"
+
+- name: Debug message for Fedora Setup inclusion
   debug:
     msg: "Including Fedora setup tasks because the OS is Fedora"
+  when: ansible_distribution == "Fedora"
 
 - name: Repos
-  inlcude_tasks: Tasks/fedorarepos.yml
+  include_tasks: Tasks/fedorarepos.yml
   when: ansible_distribution == "Fedora"
-- name: packages
+
+- name: Packages
   include_tasks: Tasks/packages.yml
   when: ansible_distribution == "Fedora"
