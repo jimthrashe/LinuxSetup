@@ -1,29 +1,29 @@
 ---
 - name: Tasks for Fedora
   vars_files: 
-    - vars/vars.yml
+    - Fedora-workstation/vars/vars.yml
 
   tasks:
     - name: Set up Fedora repositories
-      include_tasks: tasks/fedorarepos.yml
+      include_tasks: Fedora-workstation/tasks/fedorarepos.yml
 
     - name: Install required packages
-      include_tasks: tasks/packages.yml
+      include_tasks: Fedora-workstation/tasks/packages.yml
 
     - name: Configure user settings
-      include_tasks: tasks/users.yml
+      include_tasks: Fedora-workstation/tasks/users.yml
 
     - name: Set up services
-      include_tasks: tasks/services.yml
+      include_tasks: Fedora-workstation/tasks/services.yml
 
     - name: Configure system settings
       include_tasks: tasks/system.yml
     - name: Install third-party software
-      include_tasks: tasks/thirdparty.yml
+      include_tasks: Fedora-workstation/tasks/thirdparty.yml
 
     - name: Harden the system configuration
-      include_tasks: tasks/harden.yml
+      include_tasks: Fedora-workstation/tasks/harden.yml
 
   handlers:
     - name: Import main handlers
-      import_tasks: handlers/main.yml
+      import_tasks: Fedora-workstation/handlers/main.yml
