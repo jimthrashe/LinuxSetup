@@ -3,9 +3,7 @@
   debug:
     msg: "The OS distribution is {{ ansible_distribution }}"
 
-- name: Include Fedora Setup tasks if OS is Fedora
-  include_tasks: Fedora-workstation/FedoraSetup.yml
-  when: ansible_distribution == "Fedora"
+
 
 - name: Debug message for Fedora Setup inclusion
   debug:
