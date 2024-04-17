@@ -1,9 +1,12 @@
+---
+
+
 - hosts: workstation
   become: true 
   gather_facts: yes
 
   vars_files:
-    - Fedora-workstation/FedoraSetup.ymlvars/main.yml
+    - Fedora-workstation/vars/main.yml
 
   tasks:
     - name: Set up Fedora repositories
