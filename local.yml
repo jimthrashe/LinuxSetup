@@ -5,5 +5,5 @@
 
   tasks:
     - name: Include Fedora Setup tasks if OS is Fedora
-      include_tasks: fedora-workstation/fedora.yml
+      include_tasks: Fedora-workstation/fedora.yml
       when: ansible_distribution == "Fedora"
