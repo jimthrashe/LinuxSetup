@@ -11,7 +11,7 @@
   when: ansible_distribution == "Fedora"
 
 - name: Repos
-  include_tasks: fedora-workstation/Tasks/fedorarepos.yml 
+  include_tasks: Fedora-workstation/Tasks/FedoraRepos.yml 
   when: ansible_distribution == "Fedora"
 
 - name: Packages
