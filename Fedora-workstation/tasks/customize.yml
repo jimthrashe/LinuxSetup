@@ -35,8 +35,6 @@
       dconf:
         key: "/org/gnome/desktop/background/picture-uri"
         value: "/home/{{ ansible_user_id }}/.wallpaper.png" 
-      ignore_errors: true
-
 
     - name: Debug end message
       debug:

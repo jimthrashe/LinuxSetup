@@ -117,6 +117,21 @@
   debug:
     msg: "After all packages"
 
+
+- name: Gather package facts
+  hosts: all
+  tasks:
+    - name: Collect all installed packages
+      package_facts:
+        manager: auto
+
+    - name: Display all installed packages
+      debug:
+        var: ansible_facts.packages
+
+
+
+
 #- name: Install Python Libraries
  # become: true
  # dnf:
