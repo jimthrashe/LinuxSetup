@@ -1,14 +1,9 @@
 ---
-- name: Local playbook
-  connection: local
+- name: Check and setup Fedora workstation
+  hosts: localhost
   gather_facts: yes
 
   tasks:
-    - name: Check if OS is Fedora
-      when: ansible_distribution == 'fedora'
-      include_tasks: Fedora-workstation/FedoraSetup.yml
-
-    - name: Print message and stop execution if not Fedora
-      debug:
-        msg: "Unable to assist"
-      when: ansible_distribution != 'fedora'
+    - name: Include tasks if OS is Fedora
+        include_tasks: Fedora-workstation/FedoraSetup.yml
+        when: ansible_distribution == 'Fedora'
