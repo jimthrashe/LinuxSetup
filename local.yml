@@ -7,6 +7,6 @@
 
   tasks:
     - name: Specific task for Fedora
-       debug:
-       msg: "Running a Fedora-specific task."
+      debug:
+      msg: "Running a Fedora-specific task."
       when: ansible_distribution == "Fedora"
