@@ -1,6 +1,8 @@
 ---
 - name: Tasks for Fedora
-  vars_files: vars/vars.yml
+  vars_files: 
+    - vars/vars.yml
+
   tasks:
     - name: Set up Fedora repositories
       include_tasks: tasks/fedorarepos.yml
