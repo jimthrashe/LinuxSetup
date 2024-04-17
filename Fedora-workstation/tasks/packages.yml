@@ -103,6 +103,9 @@
       - xfsdump
       - xournal
       - xseli
+
+      - pip
+      - python3-psutil
       - python3-pip
     state: installed
     update_cache: yes
