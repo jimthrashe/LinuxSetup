@@ -119,6 +119,8 @@
 
 
 - name: Gather package facts
+  hosts: all
+  become: yes
   tasks:
     - name: Collect all installed packages
       package_facts:
