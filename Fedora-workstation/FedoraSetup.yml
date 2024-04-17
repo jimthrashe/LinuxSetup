@@ -1,5 +1,5 @@
 ---
-tasks:
+- tasks:
   - name: Set up Fedora repositories if OS is Fedora
     include_tasks: Fedora-workstation/playbooks/Fedora-repos.yml
     when: ansible_distribution == "Fedora"
