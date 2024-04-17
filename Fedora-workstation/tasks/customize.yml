@@ -12,7 +12,6 @@
       copy:
         src: Fedora-workstation/Templates/wallpaper.jpg
         dest: "{{ ansible_env.HOME }}/.wallpaper.jpg"
-      when: wallpaper_stat.stat.exists
       ignore_errors: true
 
     - name: Debug end message
