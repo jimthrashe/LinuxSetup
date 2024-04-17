@@ -6,13 +6,13 @@
 
   tasks:
     - name: Import tasks
-      include_tasks: Fedora-workstation/tasks/fedorarepos.yml
-    - include_tasks: Fedora-workstation/tasks/packages.yml
-    - include_tasks: Fedora-workstation/tasks/users.yml
-    - include_tasks: Fedora-workstation/tasks/services.yml
-    - include_tasks: Fedora-workstation/tasks/system.yml
-    - include_tasks: Fedora-workstation/tasks/thirdparty.yml
-    - include_tasks: Fedora-workstation/tasks/harden.yml
+      - include_tasks: Fedora-workstation/tasks/fedorarepos.yml
+      - include_tasks: Fedora-workstation/tasks/packages.yml
+      - include_tasks: Fedora-workstation/tasks/users.yml
+      - include_tasks: Fedora-workstation/tasks/services.yml
+      - include_tasks: Fedora-workstation/tasks/system.yml
+      - include_tasks: Fedora-workstation/tasks/thirdparty.yml
+      - include_tasks: Fedora-workstation/tasks/harden.yml
 
   handlers:
     - name: Import handlers
