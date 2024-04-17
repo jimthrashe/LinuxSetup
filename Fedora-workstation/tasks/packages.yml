@@ -117,7 +117,9 @@
   debug:
     msg: "After all packages"
 
-- name: Install Python Libraries
-  become: true
-  dnf:
-    name:
+#- name: Install Python Libraries
+ # become: true
+ # dnf:
+  #  name:
+
+ # ignore_errors: yes
