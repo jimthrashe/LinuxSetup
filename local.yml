@@ -5,7 +5,8 @@
   gather_facts: yes
 
 
-  - include_tasks:
-    file: Fedora-workstation/FedoraSetup.yml
-
-
+  tasks:
+    - name: Specific task for Fedora
+       debug:
+       msg: "Running a Fedora-specific task."
+      when: ansible_distribution == "Fedora"
