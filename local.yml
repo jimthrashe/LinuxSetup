@@ -1,5 +1,5 @@
 ---
-- hosts: workstation
+- hosts: workstaton
   become: true 
   gather_facts: yes
 
