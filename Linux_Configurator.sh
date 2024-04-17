@@ -115,7 +115,7 @@ check_distribution() {
 
 Ansible_ConfiguratorFedora(){
 
-        ansible-pull -U https://github.com/jimthrashe/LinuxSetup -i Fedora-workstation/inventory
+    ansible-pull -U https://github.com/jimthrashe/LinuxSetup -i Fedora-workstation/inventory
 }
 
 
