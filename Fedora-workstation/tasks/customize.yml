@@ -4,6 +4,9 @@
     - name: Debug start message
       debug:
         msg: "Starting to copy wallpaper file"
+    - name: Print current file path
+      debug:
+        msg: "Current playbook path is: {{ playbook_dir }}"
 
     - name: Copy wallpaper file
       copy:
