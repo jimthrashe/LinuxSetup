@@ -1,5 +1,8 @@
 ---
 - name: Setup Workstation
+  hosts: localhost  # This line was missing in your provided examples; ensure you define which hosts to target.
+  gather_facts: true  # This can be set to true or false depending on whether you need to gather facts.
+
   vars_files:
     - Fedora-workstation/vars/vars.yml
 
