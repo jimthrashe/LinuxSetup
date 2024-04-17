@@ -1,43 +1,37 @@
 ---
-- hosts: localhost
-  become: true
-  gather_facts: true
+gather_facts: true
 
-  vars_files:
-    - Fedora-workstation/vars/main.yml
+vars_files:
+  - Fedora-workstation/vars/main.yml
 
-  tasks:
-    - name: Set up Fedora repositories if OS is Fedora
-      include_tasks: Fedora-workstation/playbooks/Fedora-repos.yml
-      when: ansible_distribution == "Fedora"
+tasks:
+  - name: Set up Fedora repositories if OS is Fedora
+    include_tasks: Fedora-workstation/playbooks/Fedora-repos.yml
+    when: ansible_distribution == "Fedora"
 
-    - name: Install required packages if OS is Fedora
-      include_tasks: Fedora-workstation/playbooks/Packages.yml
-      when: ansible_distribution == "Fedora"
+  - name: Install required packages if OS is Fedora
+    include_tasks: Fedora-workstation/playbooks/Packages.yml
+    when: ansible_distribution == "Fedora"
 
-    - name: Configure user settings if OS is Fedora
-      include_tasks: Fedora-workstation/playbooks/Users.yml
-      when: ansible_distribution == "Fedora"
+  - name: Configure user settings if OS is Fedora
+    include_tasks: Fedora-workstation/playbooks/Users.yml
+    when: ansible_distribution == "Fedora"
 
-    - name: Set up services if OS is Fedora
-      include_tasks: Fedora-workstation/playbooks/Services.yml
-      when: ansible_distribution == "Fedora"
+  - name: Set up services if OS is Fedora
+    include_tasks: Fedora-workstation/playbooks/Services.yml
+    when: ansible_distribution == "Fedora"
 
-    - name: Configure system settings if OS is Fedora
-      include_tasks: Fedora-workstation/playbooks/System.yml
-      when: ansible_distribution == "Fedora"
+  - name: Configure system settings if OS is Fedora
+    include_tasks: Fedora-workstation/playbooks/System.yml
+    when: ansible_distribution == "Fedora"
 
-    - name: Install third-party software if OS is Fedora
-      include_tasks: Fedora-workstation/playbooks/Thirdparty.yml
-      when: ansible_distribution == "Fedora"
+  - name: Install third-party software if OS is Fedora
+    include_tasks: Fedora-workstation/playbooks/Thirdparty.yml
+    when: ansible_distribution == "Fedora"
 
-    - name: Harden the system configuration if OS is Fedora
-      include_tasks: Fedora-workstation/playbooks/Harden.yml
-      when: ansible_distribution == "Fedora"
+  - name: Harden the system configuration if OS is Fedora
+    include_tasks: Fedora-workstation/playbooks/Harden.yml
+    when: ansible_distribution == "Fedora"
 
-
-# Handlers are typically used within playbooks so you might need to reorganize
-# how these are imported or triggered.
-
-  handlers:
+handlers:
   - import_tasks: handlers/main.yml
