@@ -5,6 +5,7 @@
   gather_facts: yes
 
 
-  - include_tasks: Fedora-workstation/FedoraSetup.yml
+  - include_tasks:
+    file: Fedora-workstation/FedoraSetup.yml
 
 
