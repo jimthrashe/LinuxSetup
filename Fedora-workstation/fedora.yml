@@ -8,9 +8,9 @@
 - name: Debug message for Fedora Setup inclusion
   debug:
     msg: "Including Fedora setup tasks because the OS is Fedora"
-  when: ansible_distribution == "Fedora"
+  when: ansible_distribut
 
-- name: Repos
+- name: Reion == "Fedora"pos
   include_tasks: Fedora-workstation/tasks/repos.yml
   
   when: ansible_distribution == "Fedora"
@@ -18,5 +18,15 @@
 
 - name: Packages
   include_tasks: Fedora-workstation/tasks/packages.yml
+  
+  when: ansible_distribution == "Fedora"
+
+- name: Third Party
+  include_tasks: Fedora-workstation/tasks/thirdparty.yml
+  
+  when: ansible_distribution == "Fedora"
+
+- name: Harden 
+  include_tasks: Fedora-workstation/tasks/harden.yml
   
   when: ansible_distribution == "Fedora"

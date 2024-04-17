@@ -1,0 +1,28 @@
+---
+
+- name: Display the value of ansible_distribution
+  debug:
+    msg: "step 1"
+
+- name: Setup {{ local_user }} user
+  user: 
+    name: "{{ local_user }}"
+    home: /home/{{ local_user }}
+    groups: wheel
+    append: yes 
+- name: Display the value of ansible_distribution
+  debug:
+    msg: "step 2"
+
+- name: Allow wheel group to sudo without a password
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%wheel'
+    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+    validate: visudo -cf %s
+  when: local_user_passwordless_sudo
+
+- name: Display the value of ansible_distribution
+  debug:
+    msg: "step 3"
