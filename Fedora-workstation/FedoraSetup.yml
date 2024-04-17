@@ -1,6 +1,6 @@
 ---
 -
-gather_facts: yes
+
 
 vars_files:
   - Fedora-workstation/vars/main.yml
