@@ -1,5 +1,8 @@
 ---
 - name: Tasks for Fedora
+
+  hosts: workstation
+  gather_facts: yes
   vars_files: 
     - Fedora-workstation/vars/vars.yml
 
