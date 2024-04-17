@@ -1,6 +1,5 @@
 ---
-- hosts: workstation 
-  become: true
+- become: true
   gather_facts: false
 
   vars_files:
