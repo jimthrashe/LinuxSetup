@@ -119,7 +119,6 @@
 
 
 - name: Gather package facts
-  hosts: all
   tasks:
     - name: Collect all installed packages
       package_facts:
