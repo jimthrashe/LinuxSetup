@@ -19,7 +19,8 @@
         msg: "Finished copying wallpaper file"
 
 - name: Set GNOME wallpaper with debug
-  become_user: me
+  become: true
+  become_method: sudo
   block:
     - name: Debug start message
       debug:
