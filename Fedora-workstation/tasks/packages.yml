@@ -1,5 +1,5 @@
 --- 
-- name: Display the value of ansible_distribution
+- name: Package debug 
   debug:
     msg: "Updgrading all packages"
 - name: Upgrade all packages
@@ -103,3 +103,5 @@
     - xournal
     - xsel 
     state: installed 
+    update_cache: yes
+  ignore_errors: yes
