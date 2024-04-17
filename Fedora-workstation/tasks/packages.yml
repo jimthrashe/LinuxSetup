@@ -1,5 +1,7 @@
 --- 
-
+- name: Display the value of ansible_distribution
+  debug:
+    msg: "Updgrading all packages"
 - name: Upgrade all packages
   dnf: 
     name: "*"
@@ -10,6 +12,12 @@
 #    name:
 #       - "@TacoBell"
 #    state: installed
+
+
+
+- name: Display the value of ansible_distribution
+  debug:
+    msg: "Installing all packages"
 
 - name: Install  packages
   dnf:
