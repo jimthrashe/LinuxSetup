@@ -10,13 +10,19 @@
         name: 'https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm'
         state: present
       when: not chrome_installed.stat.exists
+      ignore_errors: yes 
 
     - name: Enable Google Chrome repo
       command: dnf config-manager --set-enabled google-chrome
       args:
         warn: false
+      ignore_errors: yes 
 
   when: install_chrome
+- name: Package debug 
+  debug:
+    msg: "Chrome Complete"
+
 
 - block: 
 
@@ -27,9 +33,12 @@
     - name: Install Fedora Spotify repo 
       command: dnf config-manager --add-repo=https://negativeo17.org/repos/fedora-spotify-repo
       when: not fedora_spotify_installed.stat.exists
-
+      ignore_errors: yes 
   when: install_spotify
 
+- name: Package debug 
+  debug:
+    msg: "Spotify Complete"
 - block:
 
     - name: Check for vscode repo
@@ -40,6 +49,8 @@
       rpm_key:
         state: present
         key: https://packages.microsoft.com/keys/microsoft.asc
+      ignore_errors: yes 
+
 
     - name: Enable vscode repo
       yum_repository:
@@ -50,10 +61,12 @@
         gpgkey: 'https://packages.microsoft.com/keys/microsoft.asc'
         gpgcheck: yes
       when: not fedora_vscode_installed.stat.exists
-
+      ignore_errors: yes 
   when: install_vscode
 
-
+- name: Package debug 
+  debug:
+    msg: "Vscode Complete"
 
 - block:
 
@@ -70,11 +83,15 @@
         name: "http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_version }}.noarch.rpm"
         state: present
       when: not fedora_rpm_fusion_free_installed.stat.exists
-
+      ignore_errors: yes 
     - name: Install RPM Fusion Nonfree repo rpms
       dnf:
         name: "http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_version }}.noarch.rpm"
         state: present
       when: not fedora_rpm_fusion_nonfree_installed.stat.exists
-
+      ignore_errors: yes 
   when: install_rpmfusion
+
+- name: Package debug 
+  debug:
+    msg: "RPM fusion Complete"

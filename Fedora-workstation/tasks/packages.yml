@@ -105,3 +105,7 @@
     state: installed 
     update_cache: yes
   ignore_errors: yes
+
+- name: Package debug 2 
+  debug:
+    msg: "After all packages"
