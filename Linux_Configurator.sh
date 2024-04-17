@@ -119,7 +119,6 @@ Ansible_ConfiguratorFedora(){
     }
 
 
-}
 
 
 
