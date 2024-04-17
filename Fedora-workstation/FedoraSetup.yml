@@ -1,37 +1,21 @@
 ---
-
-
 - hosts: workstation
-  become: true 
-  gather_facts: yes
+  become: true
+  gather_facts: true
 
   vars_files:
     - Fedora-workstation/vars/main.yml
 
-  tasks:
-    - name: Set up Fedora repositories
-      include_tasks: Fedora-workstation/tasks/fedorarepos.yml
+- import_playbook: Fedora-workstation/playbooks/Fedora-repos.yml
+- import_playbook: Fedora-workstation/playbooks/Packages.yml
+- import_playbook: Fedora-workstation/playbooks/Users.yml
+- import_playbook: Fedora-workstation/playbooks/Services.yml
+- import_playbook: Fedora-workstation/playbooks/System.yml
+- import_playbook: Fedora-workstation/playbooks/Thirdparty.yml
+- import_playbook: Fedora-workstation/playbooks/Harden.yml
 
-    
+# Handlers are typically used within playbooks so you might need to reorganize
+# how these are imported or triggered.
 
-    - name: Install required packages
-      include_tasks: Fedora-workstation/tasks/packages.yml
-
-    - name: Configure user settings
-      include_tasks: Fedora-workstation/tasks/users.yml
-
-    - name: Set up services
-      include_tasks: Fedora-workstation/tasks/services.yml
-
-    - name: Configure system settings
-      include_tasks: Fedora-workstation/tasks/system.yml
-
-    - name: Install third-party software
-      include_tasks: Fedora-workstation/tasks/thirdparty.yml
-
-    - name: Harden the system configuration
-      include_tasks: Fedora-workstation/tasks/harden.yml
-
-  handlers:
-    - name: Import main handlers
-      import_tasks: handlers/main.yml
+ # handlers:
+  ##   import_tasks: handlers/main.yml
