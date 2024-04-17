@@ -7,8 +7,9 @@
 
     - name: Copy wallpaper file
       copy:
-        src: Fedora-workstation/Templates/wallpaper.png
-        dest: ./home/me/.wallpaper.png
+        src: Fedora-workstation/Templates/wallpaper.jpg
+        dest: "{{ ansible_env.HOME }}/.wallpaper.jpg"
+      when: wallpaper_stat.stat.exists
       ignore_errors: true
 
     - name: Debug end message
@@ -25,8 +26,9 @@
     - name: Set GNOME wallpaper
       dconf:
         key: "/org/gnome/desktop/background/picture-uri"
-        value: "'file:///home/me/.wallpaper.png'"
+        value: "'file://{{ ansible_env.HOME }}/.wallpaper.jpg'"
       ignore_errors: true
+
 
     - name: Debug end message
       debug:
