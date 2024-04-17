@@ -1,10 +1,10 @@
 ---
 - name: Setup Workstation
-  hosts: localhost  # This line was missing in your provided examples; ensure you define which hosts to target.
-  gather_facts: true  # This can be set to true or false depending on whether you need to gather facts.
+  hosts: localhost  # Ensuring 'hosts' directive is present and correctly indented
+  gather_facts: true  # Ensure 'gather_facts' is correctly indented and set
 
   vars_files:
-    - Fedora-workstation/vars/vars.yml
+    - Fedora-workstation/vars/vars.yml  # Check that the path is correct and file exists
 
   tasks:
     - name: Include Fedora repos setup
