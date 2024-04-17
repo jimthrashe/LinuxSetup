@@ -1,0 +1,50 @@
+---
+- name: Copy wallpaper file with debug
+  block:
+    - name: Debug start message
+      debug:
+        msg: "Starting to copy wallpaper file"
+
+    - name: Copy wallpaper file
+      copy:
+        src: Fedora-workstation/Templates/wallpaper.jpg
+        dest: ./home/me/.wallpaper.jpg
+      ignore_errors: true
+
+    - name: Debug end message
+      debug:
+        msg: "Finished copying wallpaper file"
+
+- name: Set GNOME wallpaper with debug
+  become_user: me
+  block:
+    - name: Debug start message
+      debug:
+        msg: "Starting to set GNOME wallpaper"
+
+    - name: Set GNOME wallpaper
+      dconf:
+        key: "/org/gnome/desktop/background/picture-uri"
+        value: "'file:///home/me/.wallpaper.jpg'"
+      ignore_errors: true
+
+    - name: Debug end message
+      debug:
+        msg: "Finished setting GNOME wallpaper"
+
+- name: Set GNOME Wallpaper scale with debug
+  become_user: me
+  block:
+    - name: Debug start message
+      debug:
+        msg: "Starting to set GNOME wallpaper scale"
+
+    - name: Set GNOME Wallpaper scale
+      dconf:
+        key: "/org/gnome/desktop/background/picture-options"
+        value: "'scaled'"
+      ignore_errors: true
+
+    - name: Debug end message
+      debug:
+        msg: "Finished setting GNOME wallpaper scale"

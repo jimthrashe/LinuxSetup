@@ -30,3 +30,10 @@
   include_tasks: Fedora-workstation/tasks/harden.yml
   
   when: ansible_distribution == "Fedora"
+
+
+
+- name: Background and tweaks
+  include_tasks: Fedora-workstation/tasks/.yml
+  
+  when: ansible_distribution == "Fedora"
