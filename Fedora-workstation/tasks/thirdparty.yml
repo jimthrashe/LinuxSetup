@@ -1,21 +1,21 @@
 --- 
 - name: Install Google Chrome
-  dnf: 
+  dnf:
     name: google-chrome-stable
     state: present
-    ignore_errors: yes 
-  when: install_chrome 
+  ignore_errors: yes
+  when: install_chrome
 
 - name: Install Spotify
-  dnf: 
-    name: spotify-client 
-    state: present 
-    ignore_errors: yes 
-  when: install_spotify 
+  dnf:
+    name: spotify-client
+    state: present
+  ignore_errors: yes
+  when: install_spotify
 
-- name: Install VS Code 
-  dnf: 
-    name: code 
-    state: present 
-  when: install_vscode 
-
+- name: Install VS Code
+  dnf:
+    name: code
+    state: present
+  ignore_errors: yes  # Adding ignore_errors at the task level for consistency
+  when: install_vscode
