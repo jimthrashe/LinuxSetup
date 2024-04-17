@@ -25,6 +25,11 @@
     - name: Debug start message
       debug:
         msg: "Starting to set GNOME wallpaper"
+    
+    - name: Ensure psutil is installed
+      ansible.builtin.pip:
+        name: psutil
+        state: present
 
     - name: Set GNOME wallpaper
       dconf:
@@ -38,7 +43,7 @@
         msg: "Finished setting GNOME wallpaper"
 
 - name: Set GNOME Wallpaper scale with debug
-  become_user: me
+  become_method: sudo
   block:
     - name: Debug start message
       debug:
