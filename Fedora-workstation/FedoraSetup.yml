@@ -1,31 +1,21 @@
 ---
-- 
-  
-  vars_files:
-    - /vars/vars.yml
+vars_files:
+  - vars/vars.yml  # Ensure this path is correct relative to the playbook that includes this file
 
-  tasks:
-    - name: Include Fedora repos setup
-      include_tasks: tasks/fedorarepos.yml
+tasks:
+  - name: Set up Fedora repositories
+    include_tasks: tasks/fedorarepos.yml
 
-    - name: Include packages setup
-      include_tasks: tasks/packages.yml
+  - name: Install required packages
+    include_tasks: tasks/packages.yml
 
-    - name: Include users setup
-      include_tasks: tasks/users.yml
+  - name: Configure user settings
+    include_tasks: tasks/users.yml
 
-    - name: Include services setup
-      include_tasks: tasks/services.yml
+  - name: Set up services
+    include_tasks: tasks/services.yml
 
-    - name: Include system setup
-      include_tasks: tasks/system.yml
+  - name: Configure system settings
+    include_tasks: tasks/system.yml
 
-    - name: Include third-party setup
-      include_tasks: tasks/thirdparty.yml
-
-    - name: Include hardening setup
-      include_tasks: tasks/harden.yml
-
-  handlers:
-    - name: Import main handlers
-      import_tasks: handlers/main.yml
+  - name: Install third-party software
