@@ -104,7 +104,7 @@
     - xournal
     - xsel 
     state: installed 
-  update_cache: yes
+    update_cache: yes
   ignore_errors: yes
   become: true
 
