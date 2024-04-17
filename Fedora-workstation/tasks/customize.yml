@@ -7,8 +7,8 @@
 
     - name: Copy wallpaper file
       copy:
-        src: Fedora-workstation/Templates/wallpaper.jpg
-        dest: ./home/me/.wallpaper.jpg
+        src: Fedora-workstation/Templates/wallpaper.png
+        dest: ./home/me/.wallpaper.png
       ignore_errors: true
 
     - name: Debug end message
@@ -25,7 +25,7 @@
     - name: Set GNOME wallpaper
       dconf:
         key: "/org/gnome/desktop/background/picture-uri"
-        value: "'file:///home/me/.wallpaper.jpg'"
+        value: "'file:///home/me/.wallpaper.png'"
       ignore_errors: true
 
     - name: Debug end message
