@@ -1,4 +1,9 @@
 ---
+- name: Apply all security patches
+  dnf:
+    name: '*'
+    state: latest
+    security: yes 
 
 - name: Harden sshd
   template:

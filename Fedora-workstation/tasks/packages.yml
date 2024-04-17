@@ -28,7 +28,7 @@
     - neovim
     - dconf
     - tshark
-    - awireshark-qt
+    - wireshark-qt
     - macchanger
     - binwalk
     - npm
@@ -36,7 +36,7 @@
     - ripgrep
     - fail2ban
     - firewalld
-    - firewalld-filesytem
+    - firewalld-filesystem
     - gcc-c++
     - gdb-doc
     - gnome-shell-extension-gpaste
@@ -77,14 +77,13 @@
     - pytest 
     - python3-firewall 
     - python3-virtualenv 
-    - systat 
+    - sysstat 
     - system-storage-manager 
     - task 
     - tcllib 
     - terminator 
     - testcloud 
     - testdisk 
-    - tpp 
     - transmission-cli 
     - tuna 
     - tuned 
@@ -104,7 +103,7 @@
     - xournal
     - xsel 
     state: installed 
-    update_cache: yes
+  update_cache: yes
   ignore_errors: yes
   become: true
 
