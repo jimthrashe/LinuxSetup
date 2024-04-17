@@ -1,0 +1,29 @@
+---
+
+# User
+local_user: Taco 
+local_user_email: taco@email.com 
+local_user_passwordless_sudo: true
+
+# Services
+enable_fail2ban: false
+enable_libvirtd: false
+enable_sshd: false
+enable_vagrant_nfs: false
+
+# Extras
+#install_extra_fonts: true
+#install_packager: true
+
+# Third party
+
+install_chrome: true 
+
+install_spotify: true
+
+install_vscode: true
+
+install_rpmfusion: true 
+
+#python3
+ansible_python_interpreter: /usr/bin/python3

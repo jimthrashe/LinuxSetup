@@ -10,13 +10,13 @@
         name: 'https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm'
         state: present
       when: not chrome_installed.stat.exists
-      ignore_errors: yes 
+      ignore_errors: yes
 
     - name: Enable Google Chrome repo
       command: dnf config-manager --set-enabled google-chrome
       args:
         warn: false
-      ignore_errors: yes 
+      ignore_errors: yes
 
   when: install_chrome
 - name: Package debug 
