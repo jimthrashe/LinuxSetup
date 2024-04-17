@@ -1,7 +1,7 @@
 ---
 
 # User
-local_user: Taco 
+local_user: taco 
 local_user_email: taco@email.com 
 local_user_passwordless_sudo: true
 
