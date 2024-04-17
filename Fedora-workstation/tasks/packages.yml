@@ -102,7 +102,8 @@
       - xclip
       - xfsdump
       - xournal
-      - xsel
+      - xseli
+      - python3-pip
     state: installed
     update_cache: yes
   ignore_errors: yes
@@ -115,3 +116,8 @@
 - name: Package debug 2 
   debug:
     msg: "After all packages"
+
+- name: Install Python Libraries
+  become: true
+  dnf:
+    name:
