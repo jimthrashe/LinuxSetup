@@ -1,30 +1,30 @@
----
-- name: Set up Fedora workstation
-  hosts: localhost
+- hosts: workstation
   become: true 
   gather_facts: yes
 
   tasks:
     - name: Set up Fedora repositories
-      # Include tasks to configure repositories
+      include_tasks: Fedora-workstation/tasks/fedorarepos.yml
+
+    
 
     - name: Install required packages
-      # Include tasks to install packages
+      include_tasks: Fedora-workstation/tasks/packages.yml
 
     - name: Configure user settings
-      # Include tasks to configure users
+      include_tasks: Fedora-workstation/tasks/users.yml
 
     - name: Set up services
-      # Include tasks to configure services
+      include_tasks: Fedora-workstation/tasks/services.yml
 
     - name: Configure system settings
-      # Include tasks to configure system settings
+      include_tasks: Fedora-workstation/tasks/system.yml
 
     - name: Install third-party software
-      # Include tasks to install third-party software
+      include_tasks: Fedora-workstation/tasks/thirdparty.yml
 
     - name: Harden the system configuration
-      # Include tasks to harden the system configuration
+      include_tasks: Fedora-workstation/tasks/harden.yml
 
   handlers:
     - name: Import main handlers
