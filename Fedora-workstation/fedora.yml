@@ -12,11 +12,11 @@
 
 - name: Repos
   include_tasks: Fedora-workstation/tasks/repos.yml
-  vars_files: Fedora-workstation/vars/vars.yml
+  
   when: ansible_distribution == "Fedora"
 
 
 - name: Packages
   include_tasks: Fedora-workstation/tasks/packages.yml
-  vars_files: Fedora-workstation/vars/vars.yml
+  
   when: ansible_distribution == "Fedora"

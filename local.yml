@@ -9,7 +9,9 @@
       debug:
         msg: "The OS distribution is {{ ansible_distribution }}."
 
-
+    - name: Include variable file for Fedora setup
+      include_vars: Fedora-workstation/vars/vars.yml
+      when: ansible_distribution == "Fedora"
     - name: Include Fedora Setup tasks if OS is Fedora
       include_tasks: Fedora-workstation/fedora.yml
       when: ansible_distribution == "Fedora"
