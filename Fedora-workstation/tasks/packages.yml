@@ -103,9 +103,10 @@
     - xfsdump
     - xournal
     - xsel 
-    state: installed 
-    update_cache: yes
+  state: installed 
+  update_cache: yes
   ignore_errors: yes
+  become: yes
 
 - name: Package debug 2 
   debug:
