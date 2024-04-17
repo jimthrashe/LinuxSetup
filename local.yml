@@ -1,10 +1,9 @@
 ---
-- name: Check and setup Fedora workstation
-  hosts: workstation
+- hosts: workstation
   become: true 
   gather_facts: yes
 
   tasks:
     - name: Include Fedora Setup tasks if OS is Fedora
-      import_playbook: Fedora-workstation/FedoraSetup.yml
+      include_tasks: Fedora-workstation/FedoraSetup.yml
       when: ansible_distribution == "Fedora"
