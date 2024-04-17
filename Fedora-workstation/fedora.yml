@@ -2,6 +2,7 @@
 
 - name: Repos
   inlcude_tasks: tasks/fedorarepos.yml
-
+  when: ansible_distribution == "Fedora"
 - name: packages
   include_tasks: tasks/packages.yml
+  when: ansible_distribution == "Fedora"
