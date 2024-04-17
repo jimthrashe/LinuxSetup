@@ -1,9 +1,4 @@
 ---
-gather_facts: true
-
-vars_files:
-  - Fedora-workstation/vars/main.yml
-
 tasks:
   - name: Set up Fedora repositories if OS is Fedora
     include_tasks: Fedora-workstation/playbooks/Fedora-repos.yml
