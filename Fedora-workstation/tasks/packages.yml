@@ -39,7 +39,7 @@
       - pypy
       - pytest
       - psutil
-      - python3-psuti
+      - python3-psutil
     state: installed
     update_cache: yes
   ignore_errors: yes
