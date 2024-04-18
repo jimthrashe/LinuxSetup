@@ -18,6 +18,18 @@
       debug:
         msg: "Finished copying wallpaper file"
 
+    - name: Install psutil
+      ansible.builtin.pip:
+        name: psutil
+        state: present
+    
+
+
+
+
+
+
+
 - name: Set GNOME wallpaper with debug
   become: true
   become_method: sudo
