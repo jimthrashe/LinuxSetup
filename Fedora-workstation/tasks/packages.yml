@@ -48,6 +48,8 @@
   become: true
   dnf:
     name:
+      - dconf
+      - gnome-tweaks
       - htop
       - tmux
       - neovim
