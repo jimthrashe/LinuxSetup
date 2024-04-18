@@ -38,6 +38,8 @@
       - pyp2rpm
       - pypy
       - pytest
+      - psutil
+      - python3-psuti
     state: installed
     update_cache: yes
   ignore_errors: yes
