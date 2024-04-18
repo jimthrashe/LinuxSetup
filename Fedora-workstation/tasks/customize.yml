@@ -33,7 +33,7 @@
     - name: Set GNOME wallpaper
       dconf:
         key: "/org/gnome/desktop/background/picture-uri"
-        value: "/home/taco/.wallpaper.png" 
+        value: "root/home/taco/.wallpaper.png" 
 
     - name: Debug end message
       debug:
