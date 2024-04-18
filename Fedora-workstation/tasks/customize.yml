@@ -11,7 +11,7 @@
     - name: Copy wallpaper file
       copy:
         src: Fedora-workstation/Templates/wallpaper.png
-        dest: "./home/taco/.wallpaper.png"
+        dest: "root/home/taco/.wallpaper.png"
      # ignore_errors: true
 
     - name: Debug end message
