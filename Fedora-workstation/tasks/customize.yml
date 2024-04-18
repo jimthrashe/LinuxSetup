@@ -40,10 +40,9 @@
     
 
 
-    - name: Set GNOME wallpaper
-      dconf:
-        key: "/org/gnome/desktop/background/picture-uri"
-        value: "/home/taco/.wallpaper.png" 
+
+    - name: Write value to GNOME desktop background settings
+      command: dconf write /org/gnome/desktop/background/picture-uri "'file:///home/taco/.wallpaper.png'"
 
     - name: Debug end message
       debug:
