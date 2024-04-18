@@ -93,20 +93,18 @@
 
 
 
-- name: Check if Python psutil is installed
-  hosts: all
-  tasks:
-    - name: Check for psutil Python module
-      command: python3 -c "import psutil"
-      register: psutil_check
-      ignore_errors: true
 
-    - name: Output result of psutil check
-      debug:
-        msg: "psutil is installed."
-      when: psutil_check.rc == 0
+- name: Check for psutil Python module
+  command: python3 -c "import psutil"
+  register: psutil_check
+  ignore_errors: true
 
-    - name: Output result of psutil check
-      debug:
-        msg: "psutil is not installed."
-      when: psutil_check.rc != 0
+- name: Output result of psutil check
+  debug:
+    msg: "psutil is installed."
+  when: psutil_check.rc == 0
+
+- name: Output result of psutil check
+  debug:
+    msg: "psutil is not installed."
+  when: psutil_check.rc != 0
