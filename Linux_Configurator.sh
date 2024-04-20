@@ -129,7 +129,7 @@ main(){
 
     checkos
     check_distribution
-    echo"running ansible"
+    echo "running ansible"
 
 
 
