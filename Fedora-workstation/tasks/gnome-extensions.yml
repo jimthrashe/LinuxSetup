@@ -1,0 +1,16 @@
+---
+- name: Download gnome-shell-extension-installer script
+  get_url:
+    url: "https://raw.githubusercontent.com/brunelli/gnome-shell-extension-installer/master/gnome-shell-extension-installer"
+    dest: "/usr/local/bin/gnome-shell-extension-installer"
+    mode: '0755'
+
+- name: Install Clipboard Indicator extension
+  command: gnome-shell-extension-installer 779 --yes
+  args:
+    creates: "~/.local/share/gnome-shell/extensions/clipboard-indicator@tudmotu.com"
+
+- name: Install Dash to Panel extension
+  command: gnome-shell-extension-installer 1160 --yes
+  args:
+    creates: "~/.local/share/gnome-shell/extensions/dash-to-panel@jderose9.github.com"
