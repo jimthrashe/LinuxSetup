@@ -41,7 +41,7 @@ if_Archinstall() {
     
     # Install required packages
     sudo pacman -S --noconfirm gnome python code macchanger wireshark git binwalk neovim npm go make unzip gcc ripgrep ansible
-    sudo pacman -S --noconfirm gnome-tweaks gnome-shell-extensions arcmenu gnome-shell-extension-caffeine gnome-shell-extension-clipboard-indicator gnome-shell-extension-dash-to-panel gnome-shell-extension-just-perfection gnome-shell-extension-tophat gnome-shell-extension-user-themes
+    sudo pacman -S --noconfirm gnome-tweaks gnome-shell-extensions arcmenu gnome-shell-extension-caffeine gnome-shell-extension-clipboard-indicator gnome-shell-extension-dash-to-panel gnome-shell-extension-just-perfection gnome-shell-extension-tophat gnome-shell-extension-user-themes Thunar
 }
 if_DebianInstall() {
     # Update package list and upgrade packages
